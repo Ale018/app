@@ -1,0 +1,47 @@
+<form [formGroup]="depaForm" style="margin-top: 2rem;" (ngSubmit)="onSave()">
+    <div class="p-fluid grid">
+                <div class="field col-12">
+            <span class="p-float-label">
+                <input type="text" formControlName="condominio" pInputText>
+                <label for="condominio">Condominio</label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(depaForm.get('condominio'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(depaForm.get('condominio'))}}
+            </small>
+        </div>
+        <div class="field col-12">
+            <span class="p-float-label">
+                <textarea type="text" formControlName="direccion" pInputText></textarea>
+                <label for="direccion">Direccion</label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(depaForm.get('direccion'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(depaForm.get('direccion'))}}
+            </small>
+        </div>
+        <div class="field col-12">
+            <p-dropdown [options] = "tipos"
+                        formControlName="tipoRenta"
+                        optionLabel="nombre"
+                        optionValue="tipoRenta"></p-dropdown>
+            <small *ngIf="baseForm.isValidField(depaForm.get('tipoRenta'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(depaForm.get('tipoRenta')) }}
+                </small>
+        </div>
+        <div class="flex w-full justify-content-center">
+            <p-button type= "submit" icon="pi pi-save"
+                [disabled]="depaForm.invalid"
+                class="mr-3"
+                label="{{ titleButton }}"
+                styleClass="p-button-raised"></p-button>
+            <p-button icon="pi pi-trash"
+                label="Cancelar"
+                styleClass="p-button-raised p-button-warning"></p-button>
+        </div>
+
+    </div>
+</form>

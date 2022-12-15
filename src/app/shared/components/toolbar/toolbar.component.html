@@ -1,0 +1,23 @@
+<div class=" shadow-4 m-0 h-10" [ngStyle]="{backgroundColor:'var(--primary-900)'}" >
+    <div class="grid">
+      <div class="col-4" flex justify-content-start>
+        <button pButton pRipple 
+            type="button"
+            class="inline-flex md:hidden xl:hidden lg:hidden p-button-rounded p-button-text "
+            icon="pi pi-bars"
+            (click)="visible = !visible"></button>
+            <div [ngStyle]="{backgroundColor:'var(--primary-800)'}">
+              <label class="font"  style="margin: 10px; color:rgba(255, 255, 255, 0.956); margin-left: 40%;" >Venta de todo</label>
+            </div>
+      </div>
+      <div class="col-6 col-offset-2 flex justify-content-end">
+        <p-splitButton *ngIf="isLogged" icon="pi pi-user"
+          label="{{perfil?.nombre+' '+perfil?.apellidos }}"
+          [model]= "items" 
+          styleClass="p-button-info p-button-rounded"></p-splitButton>
+      </div>
+    </div>
+  </div>
+    <p-sidebar [(visible)]="visible" [baseZIndex]="10000">
+      <app-menu></app-menu>
+    </p-sidebar>

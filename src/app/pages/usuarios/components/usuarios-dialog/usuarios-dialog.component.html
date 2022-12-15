@@ -1,0 +1,76 @@
+<form [formGroup]="userForm" style="margin-top: 2rem;" (ngSubmit)="onSave()">
+    <div class="p-fluid grid">
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input type="text" formControlName="nombre" pInputText>
+                <label for="nombre">Nombre</label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(userForm.get('nombre'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(userForm.get('nombre'))}}
+            </small>
+        </div>
+
+        <div class="field col-12">
+            <span class="p-float-label">
+                <input type="text" formControlName="apellidos" pInputText />
+                <label for="apellidos">Apellidos</label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(userForm.get('apellidos'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(userForm.get('apellidos'))}}
+            </small>
+        </div>
+
+        <div class="field col-12" *ngIf="actionTODO == 'new'">
+            <span class="p-float-label">
+                <input type="text" formControlName="username" pInputText />
+                <label for="username">Nombre de Usuario </label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(userForm.get('username'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(userForm.get('username'))}}
+            </small>
+        </div>
+
+
+        <div class="field col-12" *ngIf="actionTODO == 'new'">
+            <span class="p-float-label">
+                <input type="password" formControlName="password" pInputText />
+                <label for="password">Contraseña </label>
+
+            </span>
+            <small *ngIf="baseForm.isValidField(userForm.get('password'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(userForm.get('password'))}}
+            </small>
+        </div>
+
+
+        <div class="field col-12" *ngIf="actionTODO == 'new'">
+            <p-dropdown [options] = "roles"
+                        formControlName="rol"
+                        optionLabel="nombre"
+                        optionValue="rol"></p-dropdown>
+            <small *ngIf="baseForm.isValidField(userForm.get('rol'))"
+                class="p-error block">
+                {{ baseForm.getErrorMessage(userForm.get('rol')) }}
+                </small>
+        </div>
+
+        <div class="flex w-full justify-content-center">
+            <p-button type= "submit" icon="pi pi-save"
+                [disabled]="userForm.invalid"
+                class="mr-3"
+                label="{{ titleButton }}"
+                styleClass="p-button-raised"></p-button>
+            <p-button icon="pi pi-trash"
+                label="Cancelar"
+                styleClass="p-button-raised p-button-warning"></p-button>
+        </div>
+
+    </div>
+</form>

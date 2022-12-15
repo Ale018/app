@@ -1,0 +1,28 @@
+
+<app-toolbar></app-toolbar>
+
+<div class="card ml-2 mt-3">
+    <div class="grid">
+
+        <div  class="min-h-screen hidden sm:hidden md:inline-flex lg:inline-flex xl:inline-flex 
+        col-12 md:col-3 lg:col-2 justify-content-center shadow-4">
+
+            <app-menu></app-menu>
+
+        </div>
+
+        <div class="min-h-screen col-12 md:col-9 lg:col-10 justify-content-center ">
+
+            <router-outlet></router-outlet>
+
+        </div>
+
+    </div>
+
+</div>
+
+<ngx-spinner bdColor = "rgba(0,0,0,0.3)" size = "large" color = "#fff" type = "ball-spin-clockwise" [fullScreen] = "true"><p style="color: white" > Cargando... </p></ngx-spinner>
+<p-toast></p-toast>
+
+
+

@@ -1,0 +1,38 @@
+<hr>
+<h1 class="font" style="margin: 12px; text-align: center; background: linear-gradient(rgba(9, 24, 133, 0.926), rgb(15, 182, 182)); box-shadow: 2px 2px 2px 2px; color: rgb(255, 255, 255);" class="font" > Usuarios </h1>
+<hr>
+<div>
+    <p-button
+        label= "Agregar"
+        icon= "pi pi-plus"
+        class= "flex flex-row-reverse p-button-rounded p-button-success"
+        (onClick)="onOpenModal()"></p-button>
+</div>
+<p-table [value]="usuarios">
+    <ng-template pTemplate="header"> 
+        <tr >
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Nombre de Usuario</th>
+            <th>Fecha Registro</th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+        <tr class="font">
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellidos}}</td>
+            <td>{{usuario.username}}</td>
+            <td>{{usuario.fechaRegistro | date: 'dd/MMMM/yyyy'}}</td>
+            <td>
+                <p-button icon= "pi pi-pencil" 
+                    styleClass="mr-1 p-button-rounded p-button-info p-button-outlined"
+                    (onClick)= "onOpenModal(usuario)"></p-button>
+
+                    <p-button icon= "pi pi-trash" 
+                    styleClass="mr-1 p-button-rounded p-button-danger p-button-outlined"
+                    (onClick)= "onDelete(usuario.cveUsuario)"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

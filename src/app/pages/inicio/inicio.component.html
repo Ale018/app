@@ -1,0 +1,117 @@
+    <div class="grid" [ngStyle]="{backgroundColor:'var(--primary-100)'}">
+        <div class="col-12">
+            <p-carousel [value]="anuncios" [numVisible]="1" [numScroll]="1" [autoplayInterval]="3000" 
+            [circular]="true">
+            <ng-template let-anuncio pTemplate="item">
+                <div class="grid">
+                    <div class="col-8 font">
+                        <p class="text-3xl w-10" >{{anuncio.titulo}}</p>
+                        <p class="text-xl w-10" >{{anuncio.subtitulo}}</p>
+                    </div>
+                        <div class="col-4">
+                            <img src="{{anuncio.urlImage}} " width="100%" >
+                        </div>
+                </div>
+            </ng-template>
+        </p-carousel> 
+        </div>
+    </div>
+    
+    <hr>
+    <p-splitter [style]="{'height': '300px'}" [panelSizes]="[20,80]" [minSizes]="[10,0]" styleClass="mb-5" class="font">
+        <ng-template pTemplate>
+            <div class="col flex align-items-center justify-content-center">
+                <label>Variedad de dulces</label>
+                <p-image src="https://http2.mlstatic.com/D_NQ_NP_851096-MLM46743769179_072021-O.webp" alt="Image" width="250"></p-image>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <p-splitter layout="vertical" [panelSizes]="[15,85]">
+                <ng-template pTemplate>
+                    <div class="col flex align-items-center justify-content-center">
+                        <label>Cosmeticos para mujeres</label>
+                        <p-image src="https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" alt="Image" width="250"></p-image>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate>
+                    <p-splitter [panelSizes]="[20,80]">
+                        <ng-template pTemplate>
+                            <div class="col flex align-items-center justify-content-center">
+                                <label>Productos para la limpieza del hogar</label>
+                                <p-image src="https://static4.abc.es/media/bienestar/2020/08/05/cada-cuanto-limpiar-k0vE--620x349@abc.jpeg" alt="Image" width="250"></p-image>
+                            </div>
+                        </ng-template>
+                    </p-splitter>
+                </ng-template>
+            </p-splitter>
+        </ng-template>
+    </p-splitter><br>
+    <div [ngStyle]="{backgroundColor:'var(--primary-800)'}" class="font">
+     <label style="color: aliceblue;">Ademas dentro de nuestra empresa puedes encontrar otras secciones</label><br><br>
+    <label style="color: aliceblue;">Tambien manejamos departamentos y  puedes verlos cuando gustes</label>   
+    </div>
+    
+    <br><br><hr>
+    <p-splitter stateKey="mykey" stateStorage="local">
+        <ng-template pTemplate>
+            <label>Este es un departamento que se encuentra en las Arboledas</label>
+            <p-image src="https://www.inmuebles24.com/noticias/wp-content/uploads/2020/01/departamentos-de-lujo-2.jpeg" alt="Image" width="250"></p-image>
+        </ng-template>
+        <ng-template pTemplate>
+            <label>Este es un departamento que se encuentra las Palomas</label>
+            <p-image src="https://lahaus.imgix.net/uploads/real_estate_attachment/picture/10087755/aria_departamentos_en_venta_en_centro_de_monterrey_con_46m_cover_c7e4f95d8f05cde43532.jpg?auto=compress%2Cenhance%2Cformat&q=40&w=auto&h=700&fit=clip&crop=edges" alt="Image" width="250"></p-image>
+        </ng-template>
+    </p-splitter>
+    
+    <br><br><br>
+    
+    <div class="shadow-2 bg-red-200 font" >
+        <div class="grid">
+            <div class="col-12">
+                <p class="text-3xl font-bold ml-2">
+                    Bienvenido a la pagina de la tienda
+                </p>
+    
+                <p class="text-lg ml-2">
+                    Encuentra todos tus productos aqui
+                </p>
+            </div>
+        <div class="col-12 flex justify-content-center">
+    
+            <button pButton pRipple type="button" label="Leer más..." icon="pi pi-check" class="p-button-rounded p-button-info m-2" ></button>
+            <button pButton pRipple type="button" label="Ver mas productos" icon="pi-pi-check" class="p-button-rounded p-button-warning" ></button>
+        </div>
+    
+        </div>
+    </div>
+    
+    <div class="m-8 font">
+        <div class="grid">
+            <div class="col-4 flex justify-content-center">
+                <button pButton pRipple type="button" icon="pi pi-car" class="p-button-rounded p-button-help-outlined" ></button>
+            </div>
+            <div class="col-4 flex justify-content-center">
+                <button pButton pRipple type="button" icon="pi pi-check-circle" class="p-button-rounded p-button-help-outlined" ></button>
+            </div>
+            <div class="col-4 flex justify-content-center">
+                <button pButton pRipple type="button" icon="pi pi-sun" class="p-button-rounded p-button-help-outlined" ></button>
+            </div>
+        </div>
+        <div class="grid font">
+            <div class="col-4 flex justify-content-center">
+                <p class="text-xl font-bold">
+                    Envios en México
+                </p>
+            </div>
+            <div class="col-4 flex justify-content-center">
+                <p class="text-xl font-bold">
+                    Satisfacciones de clientes
+                </p>
+            </div>
+            <div class="col-4 flex justify-content-center">
+                <p class="text-xl font-bold">
+                    Más...
+                </p>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,23 @@
+import { NgxSpinnerService } from 'ngx-spinner';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { finalize, Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: "root"
+})
+export class LoadingInterceptor implements HttpInterceptor {
+    private countRequest = 0;
+    constructor (private spinner: NgxSpinnerService){}
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        this.spinner.show();
+        this.countRequest++;
+        return next.handle(req)
+                    .pipe(finalize ( () => {
+                        this.countRequest--;
+                        if(!this.countRequest){
+                            this.spinner.hide();
+                        }
+                    }))
+    }
+}
